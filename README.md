@@ -1,2 +1,2 @@
 # nilsol.github.io
-Nil soultions cool website
+Nil solutions cool website
