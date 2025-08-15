@@ -1,19 +1,3 @@
-/****************************************************************************************
- *                                                                                     *
- *                 Nil Solutions #1 HvH   | Utility script for the website             *
- *                                                                                     *
- * This utility was developed and provided by Gravy & The 11 View as a custom solution *
- *    This was not obfuscated to help other developers with their projects             *
- *            However you cannot take credits for this utility                         *                                          
- *                Lets stop skidding and embrace knowledge                             *
- *                                                                                     *
- *                   © 2025 Gravy & The 11 View                                        *
- *                                                                                     *
- *    Code explained to help developers make whatever changes they want.               *
- *          And also for skids to know what they're skidding                           *
- *           Discord: @gravcy for any questions or inquieres                           *
- ***************************************************************************************/
-
 (function() {
     var on = addEventListener,
         off = removeEventListener,
@@ -1270,6 +1254,12 @@
                 state = 'state' in settings ? settings.state : null,
                 effect = this.effects[style],
                 enter, leave, scrollEventThreshold;
+            if (window.CARRD_DISABLE_ANIMATION === true) {
+                if (style == 'fade-in-background') $$(selector).forEach(function(e) {
+                    e.style.setProperty('--onvisible-background-color', 'rgba(0,0,0,0.001)');
+                });
+                return;
+            }
             switch (threshold) {
                 case 1:
                     scrollEventThreshold = 0;
@@ -1802,7 +1792,7 @@
             }, 250);
         }
     }
-    new VideoThumbnail('FakePos', 'video', {
+    new VideoThumbnail('video01', 'video', {
         "class": "player",
         "src": "resources\/videos\/fakepos.mp4?v=5e725a03",
         "preload": "auto",
@@ -1810,7 +1800,7 @@
         "webkit-playsinline": "",
         "autoplay": "",
     });
-    new VideoThumbnail('ForceHit', 'video', {
+    new VideoThumbnail('video02', 'video', {
         "class": "player",
         "src": "resources\/videos\/forcehit.mp4?v=5e725a03",
         "preload": "auto",
@@ -1870,7 +1860,7 @@
         delay: 0,
         replay: false
     });
-    onvisible.add('#FakePos', {
+    onvisible.add('#video01', {
         style: 'fade-up',
         speed: 1000,
         intensity: 5,
@@ -1886,7 +1876,7 @@
         delay: 0,
         replay: false
     });
-    onvisible.add('#ForceHit', {
+    onvisible.add('#video02', {
         style: 'fade-up',
         speed: 1000,
         intensity: 5,
@@ -1944,6 +1934,14 @@
     });
     onvisible.add('.container.style8', {
         style: 'fade-up',
+        speed: 500,
+        intensity: 0,
+        threshold: 2,
+        delay: 0,
+        replay: false
+    });
+        onvisible.add('.container.style6', {
+        style: 'fade-in',
         speed: 500,
         intensity: 0,
         threshold: 2,
